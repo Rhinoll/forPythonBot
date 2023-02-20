@@ -15,20 +15,19 @@ def main1(x):
 
 
 def main2(n, z, b, p):
-    sum1, sum2 = 0, 0
-    res = 1
-    for i in range(1, n):
+    sum1, sum2, sum3 = 0, 0, 0
+    for i in range(1, n + 1):
         sum1 += ((9 * (z ** 2) + z) ** 3 - (i + 29 + z ** 3) ** 7)
-
-    for k in range(1, n):
-        for c in range(1, b):
+    for k in range(1, n + 1):
+        for c in range(1, b + 1):
             sum2 += ((k ** 5) / 79 + 15 * (89 + c ** 2 + p) ** 4)
-    res *= sum2
+        sum3 += sum2
+        sum2 = 0
 
-    return '{:.2e}'.format(sum1 + res)
+    return sum1 + sum3
 
 
-# print(main2(3, -0.57, 8, 0.38))
+print(main2(3, -0.57, 8, 0.38))
 # print(main2(4, -0.59, 7, -0.99))
 
 def main3(n):
@@ -42,15 +41,15 @@ def main3(n):
 
 # print(main3(5))
 
-def main(*lst):
+def main(lst):
     def vector(a):
         return (a ** 2 + 1 + 90 * a ** 3) ** 7
-    x = lst
-    res = 0
-    for i in range(len(x)):
-        res += vector(x[i])
 
-    print(f'{86 * res:.2e}')
+    res = 0
+    for i in lst:
+        res += vector(i)
+
+    return 86 * res
 
 
 main([0.51, -0.68, -0.17, 0.14])
